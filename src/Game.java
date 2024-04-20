@@ -65,18 +65,20 @@ public class Game {
                 case 0:
                     try {
                         selection = Integer.parseInt(scan.nextLine());
-                        if (selection > 5 || selection < 1) {
-                            if(selection != -1) {
-                                System.out.println("Invalid choice");
-                                selection = 0;
-                                break;
-                            }
+                        if(selection == -1){
+                            System.out.println("You must really like that name");
+                            System.out.println("You chose " + player1.getName());
+                            break;
+                        }
+                        else if (selection > 5 || selection < 1) {
+                            System.out.println("Invalid choice");
+                            selection = 0;
+                            break;
                         } else {
                             player1.setName(dumbNames[selection - 1]);
                             System.out.println("You chose " + player1.getName());
                             break;
                         }
-                        break;
                     }
                     catch (Exception e){
                         System.out.println("Please *actually* enter an integer.");
@@ -84,7 +86,6 @@ public class Game {
                         break;
                     }
                 case -1:
-                    System.out.println("You must really like that name");
                     break;
                 default:
                     selection = 0;

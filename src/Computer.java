@@ -45,7 +45,7 @@ public class Computer extends Player{
                 }
                 else if(available < 25 && available > 10){
                     aiType = 6;
-                    takeMarbles(available,aiType);
+                    take = takeMarbles(available,aiType);
                 }
                 else{
                     take = eniacStrat(available);
@@ -54,7 +54,7 @@ public class Computer extends Player{
             case 9:
                 if(available > 9){
                     aiType = new Random().nextInt(5,8);
-                    takeMarbles(available, aiType);
+                    take = takeMarbles(available, aiType);
                 }
                 else {
                     take = eniacStrat(available);
