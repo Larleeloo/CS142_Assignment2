@@ -5,63 +5,63 @@ public class Computer extends Player{
         this.setName(defaultName);
     }
     public int takeMarbles(int available, int aiType){
-        int take = 0;
+        int remainingPool = 0;
         switch (aiType){
             case 0:
-                take = borisStrat(available);
+                remainingPool = borisStrat(available);
                 break;
             case 1:
-                take = drGigglesStrat(available);
+                remainingPool = drGigglesStrat(available);
                 break;
             case 2:
                 aiType = new Random().nextInt(0,1);
-                take = takeMarbles(available, aiType);
+                remainingPool = takeMarbles(available, aiType);
                 break;
             case 3:
-                take = marvinStrat(available);
+                remainingPool = marvinStrat(available);
                 break;
             case 4:
-                take = sidStrat(available);
+                remainingPool = sidStrat(available);
                 break;
             case 5:
-                take = eniacStrat(available);
+                remainingPool = eniacStrat(available);
                 break;
             case 6:
                 if(available < 10){
                     aiType = 5;
-                    take = takeMarbles(available, aiType);
+                    remainingPool = takeMarbles(available, aiType);
                 }
                 else {
                     aiType = new Random().nextInt(0,5);
-                    take = takeMarbles(available, aiType);
+                    remainingPool = takeMarbles(available, aiType);
                 }
                 break;
             case 7:
-                take = halStrat(available);
+                remainingPool = halStrat(available);
                 break;
             case 8:
                 if(available > 25){
-                    take = halStrat(available);
+                    remainingPool = halStrat(available);
                 }
                 else if(available < 25 && available > 10){
                     aiType = 6;
-                    take = takeMarbles(available,aiType);
+                    remainingPool = takeMarbles(available,aiType);
                 }
                 else{
-                    take = eniacStrat(available);
+                    remainingPool = eniacStrat(available);
                 }
                 break;
             case 9:
                 if(available > 9){
                     aiType = new Random().nextInt(5,8);
-                    take = takeMarbles(available, aiType);
+                    remainingPool = takeMarbles(available, aiType);
                 }
                 else {
-                    take = eniacStrat(available);
+                    remainingPool = eniacStrat(available);
                 }
                 break;
         }
-        return take;
+        return remainingPool;
     }
 
     private int borisStrat(int available){
@@ -98,7 +98,7 @@ public class Computer extends Player{
         if(available > 20){
             available = takeHalfUnlessIsOne(available) + 9;
         }
-        else if(available > 10){
+        else if(available >= 10){
             available = available -3;
         }
         else if (available == 2 || available == 3 || available == 5 || available == 6 || available == 7 || available == 8 || available == 9){
