@@ -55,7 +55,7 @@ public class Game {
                     selection = 0;
             };
         }
-        System.out.println("Because you are human... You may prefer the following options. Enter -1 to keep your original name");
+        System.out.println("Here are some other names... Enter -1 to keep your original name");
         for (int i = 0; i < dumbNames.length; i++) {
             System.out.println(i + 1 + " " + dumbNames[i]);
         }
