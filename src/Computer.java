@@ -127,11 +127,11 @@ public class Computer extends Player{
     }
 
     private int takeHalfUnlessIsOne(int available){
-        if(available%2 == 1 && available != 1){
+        if(available%2 == 1 && available != 1 && available != 3){
             available++;
             available = available/2;
         }
-        else if (available > 1){
+        else if (available > 1 && available != 3){
             available = available/2;
         }
         else{
